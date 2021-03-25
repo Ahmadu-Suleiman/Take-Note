@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:checked="true"
+            android:icon="@drawable/ic_main"
+            android:title="@string/main" />
+        <item
+            android:id="@+id/all_notes"
+            android:icon="@drawable/ic_note"
+            android:title="@string/all_my_notes" />
+        <item
+            android:id="@+id/all_categories"
+            android:icon="@drawable/ic_category"
+            android:title="@string/all_my_categories" />
+        <item
+            android:id="@+id/notes_in_trash"
+            android:icon="@drawable/ic_trash_restore"
+            android:title="@string/notes_in_trash" />
+    </group>
+
+    <item android:title="@string/others">
+        <menu>
+            <item
+                android:id="@+id/show_tutorial"
+                android:icon="@drawable/ic_tutorial"
+                android:title="@string/show_tutorial" />
+            <item
+                android:id="@+id/share_app"
+                android:icon="@drawable/ic_share"
+                android:title="@string/share_take_note" />
+            <item
+                android:id="@+id/contact"
+                android:icon="@drawable/ic_contact"
+                android:title="@string/contact" />
+        </menu>
+    </item>
+</menu>

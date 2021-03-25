@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layout_add_category_dialog"
+    style="@style/dialogLayoutStyle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/image_add_category"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:contentDescription="TODO"
+        android:src="@drawable/ic_category"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/icon_tint" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:fontFamily="@font/bold_font"
+        android:includeFontPadding="false"
+        android:text="@string/add_a_new_category"
+        android:textColor="@color/light_text_color"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@id/image_add_category"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/image_add_category"
+        app:layout_constraintTop_toTopOf="@id/image_add_category" />
+
+    <EditText
+        android:id="@+id/input_add_category"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_margin="8dp"
+        android:fontFamily="@font/regular_font"
+        android:gravity="center_vertical"
+        android:hint="@string/enter_category_name"
+        android:imeOptions="actionDone"
+        android:importantForAutofill="no"
+        android:includeFontPadding="false"
+        android:inputType="textCapWords"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:textColor="@color/main_text_color"
+        android:textColorHint="@color/hint_color"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/image_add_category" />
+
+    <TextView
+        android:id="@+id/text_add_category"
+        style="@style/dialogActionTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:includeFontPadding="false"
+        android:padding="8dp"
+        android:text="@string/add"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/input_add_category" />
+
+    <TextView
+        android:id="@+id/text_cancel_category"
+        style="@style/dialogActionTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:includeFontPadding="false"
+        android:padding="8dp"
+        android:text="@string/cancel"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/text_add_category"
+        app:layout_constraintTop_toBottomOf="@+id/input_add_category" />
+</androidx.constraintlayout.widget.ConstraintLayout>

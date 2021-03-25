@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EditText xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dynamicEditText"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="4dp"
+    android:layout_marginEnd="8dp"
+    android:autofillHints="@string/write_here"
+    android:background="@color/layout_note_color_default"
+    android:fontFamily="@font/regular_font"
+    android:inputType="textMultiLine|textCapSentences"
+    android:padding="5dp"
+    android:textColor="@color/main_text_color"
+    android:textSize="16sp" />

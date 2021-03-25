@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layout_delete_category_dialog"
+    style="@style/dialogLayoutStyle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/image_delete_category"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:contentDescription="TODO"
+        android:src="@drawable/ic_delete"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/icon_tint" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:fontFamily="@font/bold_font"
+        android:includeFontPadding="false"
+        android:text="@string/delete_category"
+        android:textColor="@color/light_text_color"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@id/image_delete_category"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/image_delete_category"
+        app:layout_constraintTop_toTopOf="@id/image_delete_category" />
+
+    <TextView
+        android:id="@+id/text_delete_category_message"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/regular_font"
+        android:includeFontPadding="false"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:text="@string/are_you_sure_you_want_to_delete_this_category"
+        android:textColor="@color/light_text_color"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/image_delete_category"
+        app:layout_constraintTop_toBottomOf="@id/image_delete_category" />
+
+    <TextView
+        android:id="@+id/text_delete_category"
+        style="@style/dialogActionTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:includeFontPadding="false"
+        android:padding="8dp"
+        android:text="@string/delete"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_delete_category_message" />
+
+    <TextView
+        android:id="@+id/text_cancel_delete_category"
+        style="@style/dialogActionTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:includeFontPadding="false"
+        android:padding="8dp"
+        android:text="@string/cancel"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/text_delete_category"
+        app:layout_constraintTop_toBottomOf="@id/text_delete_category_message" />
+</androidx.constraintlayout.widget.ConstraintLayout>
