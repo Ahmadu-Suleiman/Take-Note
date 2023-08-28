@@ -11,8 +11,6 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import com.meta4projects.takenote.R;
 
-import java.util.Objects;
-
 public class ThirdTutorialFragment extends Fragment {
 
     TextView textViewNext, textViewBack;
@@ -22,25 +20,12 @@ public class ThirdTutorialFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_third_tutorial, container, false);
-
         textViewNext = view.findViewById(R.id.textViewNextThird);
         textViewBack = view.findViewById(R.id.textViewBackThird);
-        viewPager = Objects.requireNonNull(getActivity()).findViewById(R.id.view_pager);
+        viewPager = requireActivity().findViewById(R.id.view_pager);
 
-        textViewNext.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                viewPager.setCurrentItem(3);
-            }
-        });
-
-        textViewBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                viewPager.setCurrentItem(1);
-            }
-        });
-
+        textViewNext.setOnClickListener(v -> viewPager.setCurrentItem(3));
+        textViewBack.setOnClickListener(v -> viewPager.setCurrentItem(1));
         return view;
     }
 }

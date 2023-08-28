@@ -1,64 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.NoteTrashFragment">
 
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="wrap_content"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/trash_top_layout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_margin="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:fontFamily="@font/bold_font"
-        android:text="@string/notes_in_trash"
-        android:textColor="@color/main_text_color"
-        android:textSize="22sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:background="@android:color/transparent"
+        android:elevation="0dp"
+        android:orientation="vertical"
+        app:elevation="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_scrollFlags="scroll|enterAlways">
+
+            <ImageView
+                android:id="@+id/hamburger"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="16dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:contentDescription="@string/open_drawer"
+                android:focusable="true"
+                android:padding="8dp"
+                android:src="@drawable/ic_hamburger"
+                app:tint="@color/icon_tint" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:fontFamily="@font/big_font"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="@string/notes_in_trash"
+                android:textColor="@color/main_text_color"
+                android:textSize="22sp" />
+
+            <ImageView
+                android:id="@+id/imageView_trash_delete_all"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="16dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:contentDescription="@string/image"
+                android:focusable="true"
+                android:padding="8dp"
+                android:src="@drawable/ic_delete"
+                app:tint="@color/icon_tint" />
+        </LinearLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewTrashNotes"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
-
-    <ImageView
-        android:id="@+id/empty_image_add_note_trash"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:alpha="0.5"
-        android:src="@drawable/ic_note"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.40"
-        app:tint="@color/icon_tint"
-        android:contentDescription="TODO" />
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_anchor="@id/trash_top_layout"
+        app:layout_anchorGravity="bottom"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
     <TextView
         android:id="@+id/text_empty_note_main_trash"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:alpha="0.5"
-        android:fontFamily="@font/medium_font"
+        android:fontFamily="@font/normal_font"
+        android:gravity="center"
         android:text="@string/no_notes_in_trash"
         android:textColor="@color/light_text_color"
-        android:textSize="30sp"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="@+id/empty_image_add_note_trash"
-        app:layout_constraintStart_toStartOf="@+id/empty_image_add_note_trash"
-        app:layout_constraintTop_toBottomOf="@+id/empty_image_add_note_trash" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:textSize="25sp" />
+
+    <include
+        android:id="@+id/note_native_ad_trash"
+        layout="@layout/layout_note_native_ad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        app:layout_behavior="@string/hide_bottom_view_on_scroll_behavior" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -6,18 +6,15 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.InterstitialAd;
+import com.bumptech.glide.Glide;
 import com.meta4projects.takenote.R;
 import com.meta4projects.takenote.database.NoteDatabase;
 import com.meta4projects.takenote.database.entities.Note;
@@ -31,15 +28,15 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
-public class TrashNoteActivity extends AppCompatActivity {
+public class TrashNoteActivity extends FullscreenActivity {
 
-    TextView textViewDateTrash, textViewCategoryNameTrash;
-    TextView textViewTitleTrash, texViewFirstTrash;
-    ImageView imageViewNoteTrash;
-    ConstraintLayout layoutMainTrash, layoutDeleteNote, layoutRestoreNote;
-    LinearLayout layoutNoteSubsectionTrash;
-    Note note;
-    private InterstitialAd interstitialAdTrashNote;
+    private ScrollView scrollViewTrashNote;
+    private TextView textViewDateTrash, textViewCategoryNameTrash;
+    private TextView textViewTitleTrash, texViewFirstTrash;
+    private ImageView imageViewNoteTrash;
+    private ConstraintLayout layoutDeleteNote, layoutRestoreNote;
+    private LinearLayout layoutNoteSubsectionTrash;
+    private Note note;
     private String categoryName;
 
     @Override
@@ -47,11 +44,7 @@ public class TrashNoteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trash_note);
 
-
-        interstitialAdTrashNote = new InterstitialAd(this);
-        interstitialAdTrashNote.setAdUnitId("ca-app-pub-5207738458603169/1853183702");
-        interstitialAdTrashNote.loadAd(new AdRequest.Builder().build());
-
+        scrollViewTrashNote = findViewById(R.id.scrollView_trash_note);
         textViewDateTrash = findViewById(R.id.textView_date_trash);
         layoutRestoreNote = findViewById(R.id.layout_restore);
         layoutDeleteNote = findViewById(R.id.layout_delete_permanently);
@@ -59,76 +52,43 @@ public class TrashNoteActivity extends AppCompatActivity {
         textViewTitleTrash = findViewById(R.id.text_title_trash);
         texViewFirstTrash = findViewById(R.id.first_text_trash);
         imageViewNoteTrash = findViewById(R.id.imageView_note_trash);
-        layoutMainTrash = findViewById(R.id.layout_main_trash);
         layoutNoteSubsectionTrash = findViewById(R.id.layout_note_subsection_trash);
 
         note = new Note();
-
         final int noteId = getIntent().getIntExtra(NoteTrashFragment.TRASH_NOTE_ID_EXTRA, -1);
 
-        AsyncTask.execute(new Runnable() {
-            @Override
-            public void run() {
-                note = NoteDatabase.getINSTANCE(getApplicationContext()).noteDao().getNote(noteId);
+        AsyncTask.execute(() -> {
+            note = NoteDatabase.getINSTANCE(getApplicationContext()).noteDao().getNote(noteId);
 
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        textViewDateTrash.setText(new SimpleDateFormat("EEE, dd MMMM yyyy HH:mm a", Locale.getDefault()).format(new Date(note.getDateTime())));
-                        textViewTitleTrash.setText(note.getTitle());
-                        texViewFirstTrash.setText(note.getFirstEdittextInfo());
-                        texViewFirstTrash.requestFocus();
+            runOnUiThread(() -> {
+                textViewDateTrash.setText(new SimpleDateFormat("EEE, dd MMMM yyyy HH:mm a", Locale.getDefault()).format(new Date(note.getDateTime())));
+                textViewTitleTrash.setText(note.getTitle());
+                texViewFirstTrash.setText(note.getFirstEdittextInfo());
+                texViewFirstTrash.requestFocus();
 
-                        Bitmap bitmap = Image.getScaledBitmap(note.getImagePath(), TrashNoteActivity.this);
+                Bitmap bitmap = Image.getScaledBitmap(note.getImagePath(), TrashNoteActivity.this);
 
-                        if (bitmap != null) {
-                            imageViewNoteTrash.setImageBitmap(bitmap);
-                            imageViewNoteTrash.setVisibility(View.VISIBLE);
-                        }
+                if (bitmap != null) {
+                    Glide.with(this).asBitmap().load(bitmap).into(imageViewNoteTrash);
+                    imageViewNoteTrash.setVisibility(View.VISIBLE);
+                }
 
-                        ArrayList<String> viewTypes = note.getViewTypes();
-                        ArrayList<Subsection> subsections = note.getSubsections();
-                        ArrayList<String> edittextInfo = note.getEditTextInfo();
+                ArrayList<String> viewTypes = note.getViewTypes();
+                ArrayList<Subsection> subsections = note.getSubsections();
+                ArrayList<String> edittextInfo = note.getEditTextInfo();
 
-                        setAndInitializeViews(viewTypes, subsections, edittextInfo);
+                setAndInitializeViews(viewTypes, subsections, edittextInfo);
 
-                        if (note.getColor() > 0) {
-                            setColorToViews(note.getColor());
-                        }
+                if (note.getColor() > 0) setColorToViews(note.getColor());
 
-                        categoryName = note.getCategoryName();
-                        if (categoryName != null) {
-                            textViewCategoryNameTrash.setText(categoryName);
-                        }
+                categoryName = note.getCategoryName();
+                if (categoryName != null) textViewCategoryNameTrash.setText(categoryName);
+                else textViewCategoryNameTrash.setText(getString(R.string.none));
 
-                        layoutRestoreNote.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                if (interstitialAdTrashNote.isLoaded()) {
-                                    interstitialAdTrashNote.show();
-                                } else {
-                                    restoreNote(note);
-                                }
-                            }
-                        });
+                layoutRestoreNote.setOnClickListener(v -> restoreNote(note));
 
-                        layoutDeleteNote.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                showDeleteNoteDialog(note);
-                            }
-                        });
-                    }
-                });
-            }
-        });
-
-        interstitialAdTrashNote.setAdListener(new AdListener() {
-            @Override
-            public void onAdClosed() {
-                interstitialAdTrashNote.loadAd(new AdRequest.Builder().build());
-                restoreNote(note);
-            }
+                layoutDeleteNote.setOnClickListener(v -> showDeleteNoteDialog(note));
+            });
         });
     }
 
@@ -136,21 +96,17 @@ public class TrashNoteActivity extends AppCompatActivity {
         note.setInTrash(false);
         note.setDateTime(new Date().getTime());
 
-        AsyncTask.execute(new Runnable() {
-            @Override
-            public void run() {
-                NoteDatabase.getINSTANCE(getApplicationContext()).noteDao().updateNote(note);
+        AsyncTask.execute(() -> {
+            NoteDatabase.getINSTANCE(getApplicationContext()).noteDao().updateNote(note);
 
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        setResult(RESULT_OK);
-                        finish();
-                    }
-                });
-            }
+            runOnUiThread(() -> {
+                setResult(RESULT_OK);
+                restoreNote(note);
+                finish();
+            });
         });
     }
+
 
     private void setAndInitializeViews(ArrayList<String> viewTypes, ArrayList<Subsection> subsections, ArrayList<String> edittextInfo) {
         if (viewTypes.size() > 0) {
@@ -172,9 +128,7 @@ public class TrashNoteActivity extends AppCompatActivity {
                     final TextView textViewSubsectionBody = subsectionView.findViewById(R.id.text_sub_section_body);
                     final TextView textViewSubsectionColor = subsectionView.findViewById(R.id.text_sub_section_color);
 
-                    if (color > 0) {
-                        layoutSubsection.setBackgroundResource(color);
-                    }
+                    if (color > 0) layoutSubsection.setBackgroundResource(color);
 
                     textViewSubsectionTitle.setText(title);
                     textViewSubsectionBody.setText(body);
@@ -205,8 +159,7 @@ public class TrashNoteActivity extends AppCompatActivity {
 
     private void setColorToViews(int color) {
         note.setColor(color);
-
-        layoutMainTrash.setBackgroundResource(color);
+        scrollViewTrashNote.setBackgroundResource(color);
         textViewTitleTrash.setBackgroundResource(color);
         texViewFirstTrash.setBackgroundResource(color);
 
@@ -217,43 +170,27 @@ public class TrashNoteActivity extends AppCompatActivity {
     }
 
     private void showDeleteNoteDialog(final Note note) {
-        View view = LayoutInflater.from(this).inflate(R.layout.layout_delete_note, (ViewGroup) findViewById(R.id.layout_delete_note_dialog), false);
+        View view = LayoutInflater.from(this).inflate(R.layout.layout_delete_note, findViewById(R.id.layout_delete_note_dialog), false);
 
-        final AlertDialog dialogDeleteNote = new AlertDialog.Builder(this)
-                .setView(view)
-                .create();
+        final AlertDialog dialogDeleteNote = new AlertDialog.Builder(this).setView(view).create();
 
-        if (dialogDeleteNote.getWindow() != null) {
+        if (dialogDeleteNote.getWindow() != null)
             dialogDeleteNote.getWindow().setBackgroundDrawable(new ColorDrawable(0));
-        }
 
-        view.findViewById(R.id.text_delete_note).setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                dialogDeleteNote.dismiss();
+        view.findViewById(R.id.text_delete_note).setOnClickListener(v -> {
+            dialogDeleteNote.dismiss();
 
-                AsyncTask.execute(new Runnable() {
-                    @Override
-                    public void run() {
-                        NoteDatabase.getINSTANCE(getApplicationContext()).noteDao().deleteNote(note);
+            AsyncTask.execute(() -> {
+                NoteDatabase.getINSTANCE(getApplicationContext()).noteDao().deleteNote(note);
 
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                setResult(RESULT_OK);
-                                finish();
-                            }
-                        });
-                    }
+                runOnUiThread(() -> {
+                    setResult(RESULT_OK);
+                    finish();
                 });
-            }
+            });
         });
 
-        view.findViewById(R.id.text_cancel_delete_note).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialogDeleteNote.dismiss();
-            }
-        });
+        view.findViewById(R.id.text_cancel_delete_note).setOnClickListener(v -> dialogDeleteNote.dismiss());
 
         dialogDeleteNote.show();
     }

@@ -1,54 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.meta4projects.takenote">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.TTS_SERVICE" />
+        </intent>
+    </queries>
 
     <application
         android:allowBackup="true"
-        android:fullBackupContent="@xml/backup_descriptor"
+        android:appCategory="productivity"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:screenOrientation="portrait"
+        android:screenOrientation="fullSensor"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        tools:targetApi="q">
-
+        android:theme="@style/AppTheme">
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-5207738458603169~4313725893" />
-
-        <activity
-            android:name=".activities.TutorialActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activities.TrashNoteActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activities.ImageActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activities.CategoryActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activities.SubsectionActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activities.NoteActivity"
-            android:screenOrientation="portrait" />
+            android:value="@string/app_ad_ID" />
 
         <activity
             android:name=".activities.MainActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/SplashScreenTheme">
+            android:exported="true"
+            android:theme="@style/Theme.App.Starting">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".activities.NoteActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="image/*" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".activities.TutorialActivity" />
+        <activity android:name=".activities.SearchActivity" />
+        <activity android:name=".activities.TrashNoteActivity" />
+        <activity android:name=".activities.ImageActivity" />
+        <activity android:name=".activities.CategoryActivity" />
+        <activity android:name=".activities.SubsectionActivity" />
     </application>
 </manifest>

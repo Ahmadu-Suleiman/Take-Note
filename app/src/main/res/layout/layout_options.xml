@@ -4,7 +4,9 @@
     android:id="@+id/bottom_sheet_options"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:alpha="0.95"
     android:background="@drawable/background_options"
+    android:paddingBottom="8dp"
     app:behavior_peekHeight="40dp"
     app:layout_behavior="@string/bottom_sheet_behavior">
 
@@ -15,7 +17,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:fontFamily="@font/bold_font"
+        android:fontFamily="@font/big_font"
         android:text="@string/options"
         android:textColor="@color/main_text_color"
         android:textSize="20sp"
@@ -27,7 +29,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:contentDescription="TODO"
+        android:contentDescription="@string/image"
         android:src="@drawable/ic_options"
         app:layout_constraintBottom_toBottomOf="@+id/textView_options"
         app:layout_constraintStart_toEndOf="@+id/textView_options"
@@ -38,7 +40,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        android:contentDescription="TODO"
+        android:contentDescription="@string/image"
         android:src="@drawable/ic_options"
         app:layout_constraintBottom_toBottomOf="@+id/textView_options"
         app:layout_constraintEnd_toStartOf="@+id/textView_options"
@@ -48,14 +50,13 @@
     <LinearLayout
         android:id="@+id/linearLayout_choose_color"
         android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="16dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
         android:background="?android:attr/selectableItemBackground"
         android:clickable="true"
         android:focusable="true"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout_share"
+        android:paddingTop="8dp"
         app:layout_constraintEnd_toStartOf="@+id/linearLayout_add_image"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -65,30 +66,30 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:contentDescription="TODO"
+            android:contentDescription="@string/image"
             android:src="@drawable/ic_chose_color"
             app:tint="@color/icon_tint" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/medium_font"
+            android:fontFamily="@font/normal_font"
             android:gravity="center"
             android:text="@string/choose_color"
             android:textColor="@color/light_text_color"
-            android:textSize="20sp" />
+            android:textSize="18sp" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout_add_image"
         android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="16dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
         android:background="?android:attr/selectableItemBackground"
         android:clickable="true"
         android:focusable="true"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout_share"
+        android:paddingTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/linearLayout_choose_color"
@@ -98,31 +99,29 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:contentDescription="TODO"
+            android:contentDescription="@string/image"
             android:src="@drawable/ic_add_image"
             app:tint="@color/icon_tint" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/medium_font"
+            android:fontFamily="@font/normal_font"
             android:gravity="center"
             android:text="@string/add_image"
             android:textColor="@color/light_text_color"
-            android:textSize="20sp" />
+            android:textSize="18sp" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout_share"
         android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="16dp"
+        android:layout_height="68dp"
         android:background="?android:attr/selectableItemBackground"
         android:clickable="true"
         android:focusable="true"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:paddingTop="16dp"
         app:layout_constraintEnd_toStartOf="@+id/linearLayout_trash_note"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -132,31 +131,29 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:contentDescription="TODO"
+            android:contentDescription="@string/image"
             android:src="@drawable/ic_share"
             app:tint="@color/icon_tint" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/medium_font"
+            android:fontFamily="@font/normal_font"
             android:gravity="center"
             android:text="@string/share"
             android:textColor="@color/light_text_color"
-            android:textSize="20sp" />
+            android:textSize="18sp" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout_trash_note"
         android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="8dp"
+        android:layout_height="68dp"
         android:background="?android:attr/selectableItemBackground"
         android:clickable="true"
         android:focusable="true"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:paddingTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/linearLayout_share"
@@ -166,17 +163,79 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:contentDescription="TODO"
+            android:contentDescription="@string/image"
             android:src="@drawable/ic_delete"
             app:tint="@color/icon_tint" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/medium_font"
+            android:fontFamily="@font/normal_font"
             android:gravity="center"
             android:text="@string/trash"
             android:textColor="@color/light_text_color"
-            android:textSize="20sp" />
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout_hierarchy"
+        android:layout_width="0dp"
+        android:layout_height="68dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:orientation="vertical"
+        android:paddingTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/linearLayout_read_note"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout_share">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/hierarchy"
+            android:src="@drawable/ic_hierarchy"
+            app:tint="@color/icon_tint" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/normal_font"
+            android:gravity="center"
+            android:text="@string/subsection_hierarchy"
+            android:textColor="@color/light_text_color"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout_read_note"
+        android:layout_width="0dp"
+        android:layout_height="68dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:orientation="vertical"
+        android:paddingTop="16dp"
+        app:layout_constraintEnd_toStartOf="@id/linearLayout_hierarchy"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout_share">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/read_note"
+            android:src="@drawable/ic_read"
+            app:tint="@color/icon_tint" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/normal_font"
+            android:gravity="center"
+            android:text="@string/read_note"
+            android:textColor="@color/light_text_color"
+            android:textSize="18sp" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

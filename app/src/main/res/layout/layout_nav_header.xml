@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ImageView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="200dp"
-    android:background="@drawable/take_note_nav_header" />
+    android:layout_height="100dp"
+    android:scaleType="centerCrop"
+    android:src="@drawable/ic_take_note_icon"
+    android:background="@color/colorPrimary"
+    android:contentDescription="@string/image" />

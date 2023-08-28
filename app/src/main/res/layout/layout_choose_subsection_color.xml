@@ -4,7 +4,8 @@
     android:id="@+id/layout_choose_subsection_color_dialog"
     style="@style/dialogLayoutStyle"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:padding="18dp">
 
     <View
         android:id="@+id/view_subsection_color_default"
@@ -13,6 +14,7 @@
         android:layout_marginEnd="8dp"
         android:background="@drawable/background_subsection_color_default"
         android:clickable="true"
+        android:contentDescription="@string/color"
         android:focusable="true"
         app:layout_constraintEnd_toStartOf="@+id/view_subsection_color_green"
         app:layout_constraintHorizontal_bias="0.5"
@@ -26,6 +28,7 @@
         android:layout_marginTop="8dp"
         android:background="@drawable/background_subsection_color_yellow"
         android:clickable="true"
+        android:contentDescription="@string/color"
         android:focusable="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -39,6 +42,7 @@
         android:layout_marginEnd="8dp"
         android:background="@drawable/background_subsection_color_green"
         android:clickable="true"
+        android:contentDescription="@string/color"
         android:focusable="true"
         app:layout_constraintEnd_toStartOf="@+id/view_subsection_color_blue"
         app:layout_constraintHorizontal_bias="0.5"
@@ -51,6 +55,7 @@
         android:layout_height="70dp"
         android:background="@drawable/background_subsection_color_blue"
         android:clickable="true"
+        android:contentDescription="@string/color"
         android:focusable="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -65,6 +70,7 @@
         android:layout_marginEnd="8dp"
         android:background="@drawable/background_subsection_color_purple"
         android:clickable="true"
+        android:contentDescription="@string/color"
         android:focusable="true"
         app:layout_constraintEnd_toStartOf="@+id/view_subsection_color_pink"
         app:layout_constraintHorizontal_bias="0.5"
@@ -79,6 +85,7 @@
         android:layout_marginEnd="8dp"
         android:background="@drawable/background_subsection_color_pink"
         android:clickable="true"
+        android:contentDescription="@string/color"
         android:focusable="true"
         app:layout_constraintEnd_toStartOf="@+id/view_subsection_color_yellow"
         app:layout_constraintHorizontal_bias="0.5"
