@@ -5,23 +5,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
+    android:fitsSystemWindows="true"
     tools:context=".activities.ImageActivity">
 
     <ImageView
         android:id="@+id/imageView_full"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:contentDescription="TODO" />
+        android:background="@color/black"
+        android:contentDescription="@string/image" />
 
     <ImageView
         android:id="@+id/imageView_remove_full_image"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         android:layout_gravity="top|end"
         android:layout_margin="30dp"
         android:background="?android:attr/selectableItemBackground"
         android:clickable="true"
-        android:contentDescription="TODO"
+        android:contentDescription="@string/image"
         android:focusable="true"
         android:src="@drawable/ic_delete"
         app:tint="@color/icon_tint" />

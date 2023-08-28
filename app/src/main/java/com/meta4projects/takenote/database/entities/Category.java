@@ -14,15 +14,13 @@ import java.util.ArrayList;
 @Entity(tableName = "categories")
 public class Category {
 
+    @Ignore
+    private final ArrayList<Note> notesInCategory;
     @ColumnInfo(name = "category_id")
     @PrimaryKey(autoGenerate = true)
     private int categoryId;
-
     @ColumnInfo(name = "category_name")
     private String name;
-
-    @Ignore
-    private final ArrayList<Note> notesInCategory;
 
     public Category(String name) {
         this.name = name;

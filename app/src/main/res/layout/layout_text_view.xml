@@ -7,8 +7,8 @@
     android:layout_marginTop="4dp"
     android:layout_marginEnd="8dp"
     android:background="@color/layout_note_color_default"
-    android:fontFamily="@font/regular_font"
+    android:fontFamily="@font/normal_font"
     android:padding="5dp"
     android:textColor="@color/main_text_color"
-    android:textSize="16sp"
+    android:textSize="14sp"
     tool:text="Note text" />

@@ -1,6 +1,5 @@
 package com.meta4projects.takenote.adapters;
 
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,32 +7,25 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.meta4projects.takenote.R;
-import com.meta4projects.takenote.activities.CategoryActivity;
 import com.meta4projects.takenote.database.entities.Category;
 
 import java.util.List;
 
 public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.CategoryHolder> {
 
-    public static final int CATEGORY_REQUEST_CODE = 333;
-
-    public static final String CATEGORY_NAME_EXTRA = "com.meta4projects.takenote.adapters.CATEGORY_NAME";
-    boolean isBig;
     private final List<Category> categories;
-    private final Fragment fragment;
+    boolean isBig;
+    private Listener listener;
 
-    public CategoriesAdapter(List<Category> categories, Fragment fragment) {
+    public CategoriesAdapter(List<Category> categories) {
         this.categories = categories;
-        this.fragment = fragment;
     }
 
-    public CategoriesAdapter(List<Category> categories, Fragment fragment, boolean isBig) {
+    public CategoriesAdapter(List<Category> categories, boolean isBig) {
         this.categories = categories;
-        this.fragment = fragment;
         this.isBig = isBig;
     }
 
@@ -42,12 +34,10 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Ca
     public CategoryHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view;
 
-        if (isBig) {
+        if (isBig)
             view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_category_detailed, parent, false);
-        } else {
+        else
             view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_category, parent, false);
-        }
-
         return new CategoryHolder(view);
     }
 
@@ -55,14 +45,13 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Ca
     public void onBindViewHolder(@NonNull CategoryHolder holder, final int position) {
         final Category category = categories.get(position);
         holder.setCategory(category);
-        holder.layout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(fragment.getActivity(), CategoryActivity.class);
-                intent.putExtra(CATEGORY_NAME_EXTRA, category.getName());
-                fragment.startActivityForResult(intent, CATEGORY_REQUEST_CODE);
-            }
+        holder.layout.setOnClickListener(v -> {
+            if (listener != null) listener.onClick(category.getName());
         });
+    }
+
+    public void setListener(Listener listener) {
+        this.listener = listener;
     }
 
     @Override
@@ -78,6 +67,10 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Ca
     @Override
     public int getItemViewType(int position) {
         return position;
+    }
+
+    public interface Listener {
+        void onClick(String categoryName);
     }
 
     static class CategoryHolder extends RecyclerView.ViewHolder {

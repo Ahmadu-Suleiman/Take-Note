@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/layout_color"
     tools:context="com.meta4projects.takenote.fragments.FirstTutorialFragment">
 
     <TextView
@@ -11,23 +10,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="70dp"
-        android:fontFamily="@font/bold_font"
+        android:fontFamily="@font/big_font"
         android:text="@string/thank_you"
         android:textColor="@color/main_text_color"
-        android:textSize="50sp"
+        android:textSize="45sp"
         app:layout_constraintEnd_toEndOf="@+id/textView14"
         app:layout_constraintStart_toStartOf="@+id/textView14"
         app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
     <TextView
         android:id="@+id/textView14"
+        style="@style/tutorialTextStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="24dp"
         android:text="@string/for_choosing_take_note_i_hope_you_really_enjoy_it"
-        style="@style/TutorialTextStyle"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView13" />
@@ -37,14 +37,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="32dp"
-        android:layout_marginBottom="32dp"
-        android:background="?android:attr/selectableItemBackground"
+        android:layout_marginBottom="16dp"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
         android:clickable="true"
         android:focusable="true"
-        android:fontFamily="@font/medium_font"
+        android:fontFamily="@font/normal_font"
+        android:minHeight="48dp"
         android:text="@string/next"
         android:textColor="@color/main_text_color"
-        android:textSize="30sp"
+        android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -55,10 +56,10 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
-        android:fontFamily="@font/regular_font"
+        android:fontFamily="@font/normal_font"
         android:text="@string/_1_5"
         android:textColor="@color/light_text_color"
-        android:textSize="20sp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

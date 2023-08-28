@@ -3,19 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="100dp"
-    android:layout_margin="5dp"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
     android:clickable="true"
     android:focusable="true"
     android:foreground="?android:attr/selectableItemBackground"
     app:cardCornerRadius="12dp"
-    app:cardElevation="8dp"
+    app:cardElevation="4dp"
     app:cardPreventCornerOverlap="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout_note"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="@color/layout_note_color_default"
         android:padding="8dp">
 
@@ -23,14 +23,12 @@
             android:id="@+id/textView_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
             android:ellipsize="end"
-            android:fontFamily="@font/bold_font"
+            android:fontFamily="@font/big_font"
             android:maxLines="1"
             android:textColor="@color/main_text_color"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toStartOf="@+id/guideline"
-            app:layout_constraintHorizontal_bias="0.0"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/textView_body"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Title" />
@@ -38,54 +36,39 @@
         <TextView
             android:id="@+id/textView_body"
             android:layout_width="0dp"
-            android:layout_height="55dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:layout_marginEnd="8dp"
             android:ellipsize="end"
-            android:fontFamily="@font/regular_font"
+            android:fontFamily="@font/normal_font"
             android:maxLines="4"
+            android:minHeight="55dp"
             android:textColor="@color/light_text_color"
-            android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@+id/textView_date"
             app:layout_constraintEnd_toStartOf="@+id/imageViewNoteImage"
-            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView_title"
-            app:layout_constraintVertical_bias="0.0"
             tools:text="body" />
 
         <TextView
             android:id="@+id/textView_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
             android:textColor="@color/light_text_color"
             android:textSize="12sp"
-            app:layout_constraintBottom_toTopOf="@+id/imageViewNoteImage"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/guideline"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/imageViewNoteImage"
             tools:text="@tools:sample/date/ddmmyy" />
 
-        <com.makeramen.roundedimageview.RoundedImageView
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/imageViewNoteImage"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:scaleType="centerCrop"
-            app:layout_constraintBottom_toBottomOf="@+id/textView_body"
+            app:layout_constraintBottom_toTopOf="@+id/textView_date"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView_title"
-            app:layout_constraintVertical_bias="1.0"
-            app:riv_corner_radius="10dp" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_end="70dp" />
-
+            app:shapeAppearanceOverlay="@style/imageViewCorners" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

@@ -37,4 +37,7 @@ public interface NoteDao {
 
     @Query("SELECT * FROM notes WHERE note_category_name = :categoryName AND note_in_trash = 0 ORDER BY note_date_time DESC")
     List<Note> getNotesInCategory(String categoryName);
+
+    @Query("DELETE FROM notes WHERE note_in_trash = 1")
+    void deleteAllTrashNotes();
 }

@@ -1,76 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.NotesFragment">
 
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="wrap_content"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/note_top_layout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_margin="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:fontFamily="@font/bold_font"
-        android:text="@string/all_my_notes"
-        android:textColor="@color/main_text_color"
-        android:textSize="22sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:background="@android:color/transparent"
+        android:elevation="0dp"
+        android:orientation="vertical"
+        app:elevation="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_scrollFlags="scroll|enterAlways">
+
+            <ImageView
+                android:id="@+id/hamburger"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="16dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:contentDescription="@string/open_drawer"
+                android:focusable="true"
+                android:padding="8dp"
+                android:src="@drawable/ic_hamburger"
+                app:tint="@color/icon_tint" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:fontFamily="@font/big_font"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="@string/all_my_notes"
+                android:textColor="@color/main_text_color"
+                android:textSize="22sp" />
+
+            <ImageView
+                android:id="@+id/search"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="16dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:contentDescription="@string/image"
+                android:focusable="true"
+                android:padding="8dp"
+                android:src="@drawable/ic_search"
+                app:tint="@color/icon_tint" />
+        </LinearLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewNotes"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView10" />
-
-    <com.getbase.floatingactionbutton.FloatingActionButton
-        android:id="@+id/imageView_notes_add_note"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="30dp"
-        app:fab_colorNormal="@color/colorAccent"
-        app:fab_colorPressed="@color/colorPrimary"
-        app:fab_icon="@drawable/ic_note"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <ImageView
-        android:id="@+id/empty_image_add_note"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:alpha="0.5"
-        android:src="@drawable/ic_add_note"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.40"
-        app:tint="@color/icon_tint"
-        android:contentDescription="TODO" />
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_anchor="@id/note_top_layout"
+        app:layout_anchorGravity="bottom"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
     <TextView
         android:id="@+id/text_empty_note"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:alpha="0.5"
-        android:fontFamily="@font/medium_font"
+        android:fontFamily="@font/normal_font"
+        android:gravity="center"
         android:text="@string/no_notes_yet_n_tap_to_button_to_add_note"
         android:textColor="@color/light_text_color"
-        android:textSize="30sp"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="@+id/empty_image_add_note"
-        app:layout_constraintStart_toStartOf="@+id/empty_image_add_note"
-        app:layout_constraintTop_toBottomOf="@+id/empty_image_add_note" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:textSize="25sp"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="vertical"
+        app:layout_behavior="@string/hide_bottom_view_on_scroll_behavior">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/imageView_notes_add_note"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="30dp"
+            android:backgroundTint="@color/colorAccent"
+            android:contentDescription="@string/add"
+            app:rippleColor="@color/colorPrimaryDark"
+            app:srcCompat="@drawable/ic_note"
+            app:tint="@color/colorPrimary" />
+
+        <include
+            android:id="@+id/note_native_ad_notes"
+            layout="@layout/layout_note_native_ad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -15,7 +15,7 @@
         android:id="@+id/layout_category"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:background="@color/colorPrimary"
+        android:background="@color/colorPrimaryDark"
         android:minWidth="70dp">
 
         <TextView
@@ -25,7 +25,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
-            android:fontFamily="@font/bold_font"
+            android:fontFamily="@font/big_font"
             android:gravity="center"
             android:textColor="@color/light_text_color"
             android:textSize="16sp"
@@ -42,7 +42,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
-            android:fontFamily="@font/bold_font"
+            android:fontFamily="@font/big_font"
             android:gravity="center"
             android:textColor="@color/light_text_color"
             android:textSize="16sp"

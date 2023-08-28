@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.AppCompatButton xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:elevation="8dp"
+    android:ellipsize="end"
+    android:textAllCaps="false"
+    android:fontFamily="@font/big_font"
+    android:maxLines="2"
+    android:padding="8dp"
+    android:textColor="@color/light_text_color"
+    android:textSize="14sp"
+    tools:text="@string/subsection" />

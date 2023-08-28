@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <EditText xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/dynamicEditText"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -8,8 +9,11 @@
     android:layout_marginEnd="8dp"
     android:autofillHints="@string/write_here"
     android:background="@color/layout_note_color_default"
-    android:fontFamily="@font/regular_font"
+    android:fontFamily="@font/normal_font"
     android:inputType="textMultiLine|textCapSentences"
+    android:labelFor="@id/dynamicEditText"
+    android:minHeight="48dp"
     android:padding="5dp"
     android:textColor="@color/main_text_color"
-    android:textSize="16sp" />
+    android:textSize="14sp"
+    tools:ignore="SpeakableTextPresentCheck" />
