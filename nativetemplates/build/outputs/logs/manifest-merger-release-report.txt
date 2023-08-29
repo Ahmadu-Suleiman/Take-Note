@@ -1,0 +1,29 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\Ahmad\Desktop\FILES\My Apps\TakeNote\nativetemplates\src\main\AndroidManifest.xml:1:1-7:12
+INJECTED from C:\Users\Ahmad\Desktop\FILES\My Apps\TakeNote\nativetemplates\src\main\AndroidManifest.xml:1:1-7:12
+INJECTED from C:\Users\Ahmad\Desktop\FILES\My Apps\TakeNote\nativetemplates\src\main\AndroidManifest.xml:1:1-7:12
+	package
+		INJECTED from C:\Users\Ahmad\Desktop\FILES\My Apps\TakeNote\nativetemplates\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Ahmad\Desktop\FILES\My Apps\TakeNote\nativetemplates\src\main\AndroidManifest.xml:1:1-7:12
+		INJECTED from C:\Users\Ahmad\Desktop\FILES\My Apps\TakeNote\nativetemplates\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\Ahmad\Desktop\FILES\My Apps\TakeNote\nativetemplates\src\main\AndroidManifest.xml:1:11-69
+application
+ADDED from C:\Users\Ahmad\Desktop\FILES\My Apps\TakeNote\nativetemplates\src\main\AndroidManifest.xml:2:3-4:17
+	android:supportsRtl
+		ADDED from C:\Users\Ahmad\Desktop\FILES\My Apps\TakeNote\nativetemplates\src\main\AndroidManifest.xml:2:16-42
+uses-sdk
+INJECTED from C:\Users\Ahmad\Desktop\FILES\My Apps\TakeNote\nativetemplates\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\Ahmad\Desktop\FILES\My Apps\TakeNote\nativetemplates\src\main\AndroidManifest.xml
+INJECTED from C:\Users\Ahmad\Desktop\FILES\My Apps\TakeNote\nativetemplates\src\main\AndroidManifest.xml
+INJECTED from C:\Users\Ahmad\Desktop\FILES\My Apps\TakeNote\nativetemplates\src\main\AndroidManifest.xml
+INJECTED from C:\Users\Ahmad\Desktop\FILES\My Apps\TakeNote\nativetemplates\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from C:\Users\Ahmad\Desktop\FILES\My Apps\TakeNote\nativetemplates\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Ahmad\Desktop\FILES\My Apps\TakeNote\nativetemplates\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Ahmad\Desktop\FILES\My Apps\TakeNote\nativetemplates\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\Ahmad\Desktop\FILES\My Apps\TakeNote\nativetemplates\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Ahmad\Desktop\FILES\My Apps\TakeNote\nativetemplates\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Ahmad\Desktop\FILES\My Apps\TakeNote\nativetemplates\src\main\AndroidManifest.xml

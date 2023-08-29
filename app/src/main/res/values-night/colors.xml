@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#292929</color>
+    <color name="colorPrimaryDark">#121212</color>
+    <color name="colorAccent">#7E5230</color>
+
+    <color name="main_text_color">#774824</color>
+    <color name="light_text_color">#93693E</color>
+
+    <color name="hint_color">#795548</color>
+    <color name="icon_tint">#83541C</color>
+    <color name="options_color">#F8BD90</color>
+
+    <color name="black">#292929</color>
+    <color name="red">#E43131</color>
+
+    <color name="layout_note_color_default">#FACFAB</color>
+    <color name="layout_note_color_green">#C8E6C9</color>
+    <color name="layout_note_color_pink">#FFCDD2</color>
+    <color name="layout_note_color_blue">#B3E5FC</color>
+    <color name="layout_note_color_yellow">#FFECB3</color>
+    <color name="layout_note_color_purple">#D1C4E9</color>
+
+    <color name="layout_subsection_color_default">#FBDDC4</color>
+    <color name="layout_subsection_color_green">#E8F5E9</color>
+    <color name="layout_subsection_color_pink">#FFEBEE</color>
+    <color name="layout_subsection_color_blue">#E1F5FE</color>
+    <color name="layout_subsection_color_yellow">#FFF8E1</color>
+    <color name="layout_subsection_color_purple">#EDE7F6</color>
+</resources>

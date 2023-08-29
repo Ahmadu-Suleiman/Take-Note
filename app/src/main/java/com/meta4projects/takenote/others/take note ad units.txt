@@ -1,0 +1,23 @@
+
+
+    <!--real unit id-->
+    <string name="interstitial_note_unit_id">ca-app-pub-8871922765309216/3111349770</string>
+    <string name="interstitial_note_trash_unit_id">ca-app-pub-8871922765309216/2656038291</string>
+    <string name="interstitial_subsection_unit_id">ca-app-pub-8871922765309216/4482951820</string>
+    <string name="native_main_note_unit_id">ca-app-pub-8871922765309216/4767196312</string>
+    <string name="native_category_unit_id">ca-app-pub-8871922765309216/3454114648</string>
+    <string name="native_category_fragment_unit_id">ca-app-pub-8871922765309216/2777475147</string>
+    <string name="native_all_notes_unit_id">ca-app-pub-8871922765309216/5090629940</string>
+    <string name="native_trash_note_unit_id">ca-app-pub-8871922765309216/4439909161</string>
+    <string name="native_search_note_unit_id">ca-app-pub-8871922765309216/2374150465</string>
+
+    <!--test unit id-->
+    <string name="interstitial_note_unit_id">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="interstitial_note_trash_unit_id">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="interstitial_subsection_unit_id">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="native_main_note_unit_id">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="native_category_unit_id">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="native_category_fragment_unit_id">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="native_all_notes_unit_id">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="native_trash_note_unit_id">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="native_search_note_unit_id">ca-app-pub-3940256099942544/2247696110</string>

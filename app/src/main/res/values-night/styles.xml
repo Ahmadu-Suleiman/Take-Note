@@ -1,0 +1,89 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@color/colorPrimaryDark</item>
+        <item name="android:windowBackground">@color/colorPrimary</item>
+        <item name="android:textViewStyle">@style/CustomTextStyle</item>
+        <item name="android:colorControlHighlight">@color/colorAccent</item>
+        <item name="android:editTextColor">@color/main_text_color</item>
+        <item name="android:textColorHint">@color/light_text_color</item>
+        <item name="android:fontFamily">@font/big_font</item>
+    </style>
+
+    <style name="CustomTextStyle" parent="android:Widget.TextView">
+        <item name="android:fontFamily">@font/normal_font</item>
+    </style>
+
+    <style name="Theme.App.Starting" parent="Theme.SplashScreen">
+        <!-- Set the splash screen background, animated icon, and animation duration. -->
+        <item name="windowSplashScreenBackground">@color/colorPrimary</item>
+
+        <!-- Use windowSplashScreenAnimatedIcon to add either a drawable or an
+             animated drawable. One of these is required. -->
+        <item name="windowSplashScreenAnimatedIcon">@drawable/splash_inset</item>
+        <!-- Required for animated icons -->
+        <item name="windowSplashScreenAnimationDuration">200</item>
+
+        <!-- Set the theme of the Activity that directly follows your splash screen. -->
+        <!-- Required -->
+        <item name="postSplashScreenTheme">@style/AppTheme</item>
+    </style>
+
+    <style name="dialogLayoutStyle">
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:background">@drawable/background_dialog</item>
+        <item name="android:padding">10dp</item>
+    </style>
+
+    <style name="BigTextStyle">
+        <item name="android:textColor">@color/light_text_color</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:fontFamily">@font/big_font</item>
+    </style>
+
+    <style name="MediumTextStyle">
+        <item name="android:textColor">@color/light_text_color</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/normal_font</item>
+    </style>
+
+    <style name="SmallTextStyle">
+        <item name="android:textColor">@color/light_text_color</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">@font/normal_font</item>
+    </style>
+
+    <style name="dialogActionTextStyle">
+        <item name="android:textColor">@color/light_text_color</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/normal_font</item>
+    </style>
+
+    <style name="tutorialTextStyle">
+        <item name="android:textColor">@color/light_text_color</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/normal_font</item>
+    </style>
+
+    <style name="drawerTextStyle" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/light_text_color</item>
+        <item name="android:textSize">16sp</item>
+        <item name="fontFamily">@font/normal_font</item>
+    </style>
+
+    <style name="imageViewCorners">
+        <item name="cornerSizeTopRight">8dp</item>
+        <item name="cornerSizeTopLeft">8dp</item>
+        <item name="cornerSizeBottomRight">8dp</item>
+        <item name="cornerSizeBottomLeft">8dp</item>
+        <item name="cornerFamily">rounded</item>
+    </style>
+</resources>
