@@ -1317,6 +1317,7 @@ int layout abc_search_dropdown_item_icons_2line 0x0
 int layout abc_search_view 0x0
 int layout abc_select_dialog_material 0x0
 int layout abc_tooltip 0x0
+int layout admob_empty_layout 0x0
 int layout browser_actions_context_menu_page 0x0
 int layout browser_actions_context_menu_row 0x0
 int layout custom_dialog 0x0
@@ -1383,6 +1384,12 @@ int string fallback_menu_item_copy_link 0x0
 int string fallback_menu_item_open_in_browser 0x0
 int string fallback_menu_item_share_link 0x0
 int string gnt_ad 0x0
+int string native_body 0x0
+int string native_headline 0x0
+int string native_media_view 0x0
+int string notifications_permission_confirm 0x0
+int string notifications_permission_decline 0x0
+int string notifications_permission_title 0x0
 int string offline_notification_text 0x0
 int string offline_notification_title 0x0
 int string offline_opt_in_confirm 0x0
@@ -1399,6 +1406,7 @@ int string s6 0x0
 int string s7 0x0
 int string search_menu_title 0x0
 int string status_bar_notification_info_overflow 0x0
+int string watermark_label_prefix 0x0
 int style AlertDialog_AppCompat 0x0
 int style AlertDialog_AppCompat_Light 0x0
 int style Animation_AppCompat_Dialog 0x0
@@ -3111,4 +3119,5 @@ int styleable ViewTransition_upDuration 13
 int styleable ViewTransition_viewTransitionMode 14
 int[] styleable include { 0x0 }
 int styleable include_constraintSet 0
+int xml gma_ad_services_config 0x0
 int xml image_share_filepaths 0x0

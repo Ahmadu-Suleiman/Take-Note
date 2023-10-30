@@ -1318,6 +1318,7 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout admob_empty_layout
 layout browser_actions_context_menu_page
 layout browser_actions_context_menu_row
 layout custom_dialog
@@ -1384,6 +1385,12 @@ string fallback_menu_item_copy_link
 string fallback_menu_item_open_in_browser
 string fallback_menu_item_share_link
 string gnt_ad
+string native_body
+string native_headline
+string native_media_view
+string notifications_permission_confirm
+string notifications_permission_decline
+string notifications_permission_title
 string offline_notification_text
 string offline_notification_title
 string offline_opt_in_confirm
@@ -1400,6 +1407,7 @@ string s6
 string s7
 string search_menu_title
 string status_bar_notification_info_overflow
+string watermark_label_prefix
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style Animation_AppCompat_Dialog
@@ -1839,4 +1847,5 @@ styleable ViewBackgroundHelper android_background backgroundTint backgroundTintM
 styleable ViewStubCompat android_id android_inflatedId android_layout
 styleable ViewTransition SharedValue SharedValueId android_id clearsTag duration ifTagNotSet ifTagSet motionInterpolator motionTarget onStateTransition pathMotionArc setsTag transitionDisable upDuration viewTransitionMode
 styleable include constraintSet
+xml gma_ad_services_config
 xml image_share_filepaths
