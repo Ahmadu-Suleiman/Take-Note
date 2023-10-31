@@ -10,7 +10,7 @@ import com.meta4projects.takenote.database.daos.NoteDao
 import com.meta4projects.takenote.database.entities.Category
 import com.meta4projects.takenote.database.entities.Note
 
-@Database(entities = [Note::class, Category::class], version = 1, exportSchema = false)
+@Database(entities = [Note::class, Category::class], version = 2, exportSchema = false)
 abstract class NoteDatabase : RoomDatabase() {
     abstract fun noteDao(): NoteDao
     abstract fun categoryDao(): CategoryDao
