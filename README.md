@@ -28,8 +28,8 @@ Take Note! is a great note-taking app for students, professionals, and anyone el
 
 **If you're looking for a powerful and versatile note-taking app for your Android device, I highly recommend Take Note!**
 
-Download here https://play.google.com/store/apps/details?id=com.meta4projects.noteapp
+Download from here https://play.google.com/store/apps/details?id=com.meta4projects.noteapp
 
-![app-mockup-android-screenshot-1-default-1080x1920-1](https://github.com/Ahmadu-Suleiman/Take-Note/assets/81268745/95ff2451-fbd3-47cb-8752-2c5d476b8ca2)
+<img width="300" height="550" alt="Screenshot 2023-11-04 160340" src="https://github.com/Ahmadu-Suleiman/Take-Note/assets/81268745/95ff2451-fbd3-47cb-8752-2c5d476b8ca2">
 
-![app-mockup-android-screenshot-1-default-1080x1920-6](https://github.com/Ahmadu-Suleiman/Take-Note/assets/81268745/ecc8ad41-0472-47b7-8c74-50da2cd79f35)
+<img width="300" height="550" alt="Screenshot 2023-11-04 160340" src="https://github.com/Ahmadu-Suleiman/Take-Note/assets/81268745/ecc8ad41-0472-47b7-8c74-50da2cd79f35">
