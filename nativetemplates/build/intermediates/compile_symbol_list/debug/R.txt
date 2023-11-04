@@ -676,7 +676,6 @@ int color gnt_blue 0x0
 int color gnt_colorAccent 0x0
 int color gnt_gray 0x0
 int color gnt_outline 0x0
-int color gnt_test_background_color 0x0
 int color gnt_white 0x0
 int color highlighted_text_material_dark 0x0
 int color highlighted_text_material_light 0x0
@@ -968,6 +967,7 @@ int drawable common_google_signin_btn_text_light 0x0
 int drawable common_google_signin_btn_text_light_focused 0x0
 int drawable common_google_signin_btn_text_light_normal 0x0
 int drawable common_google_signin_btn_text_light_normal_background 0x0
+int drawable gnt_curved_solid 0x0
 int drawable gnt_outline_shape 0x0
 int drawable gnt_rounded_corners_shape 0x0
 int drawable googleg_disabled_color_18 0x0
@@ -1384,6 +1384,7 @@ int string fallback_menu_item_copy_link 0x0
 int string fallback_menu_item_open_in_browser 0x0
 int string fallback_menu_item_share_link 0x0
 int string gnt_ad 0x0
+int string gnt_ad_image 0x0
 int string native_body 0x0
 int string native_headline 0x0
 int string native_media_view 0x0

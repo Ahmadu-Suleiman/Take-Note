@@ -1,202 +1,209 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".fragments.MainFragment">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/main_top_layout"
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        android:elevation="0dp"
-        android:orientation="vertical"
-        app:elevation="0dp">
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
-        <LinearLayout
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/main_top_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:elevation="0dp"
             android:orientation="vertical"
-            app:layout_scrollFlags="scroll|enterAlways">
+            app:elevation="0dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
+                android:orientation="vertical"
+                app:layout_scrollFlags="scroll|enterAlways">
 
-                <ImageView
-                    android:id="@+id/hamburger"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:layout_marginStart="16dp"
-                    android:background="?android:attr/selectableItemBackgroundBorderless"
-                    android:clickable="true"
-                    android:contentDescription="@string/open_drawer"
-                    android:focusable="true"
-                    android:padding="8dp"
-                    android:src="@drawable/ic_hamburger"
-                    app:tint="@color/icon_tint" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/hamburger"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="16dp"
+                        android:background="?android:attr/selectableItemBackgroundBorderless"
+                        android:clickable="true"
+                        android:contentDescription="@string/open_drawer"
+                        android:focusable="true"
+                        android:padding="8dp"
+                        android:src="@drawable/ic_hamburger"
+                        app:tint="@color/icon_tint" />
+
+                    <TextView
+                        android:id="@+id/text_categories_main"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:layout_weight="1"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/big_font"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:text="@string/my_categories"
+                        android:textColor="@color/main_text_color"
+                        android:textSize="22sp" />
+
+                    <ImageView
+                        android:id="@+id/search"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_marginEnd="16dp"
+                        android:background="?android:attr/selectableItemBackgroundBorderless"
+                        android:clickable="true"
+                        android:contentDescription="@string/image"
+                        android:focusable="true"
+                        android:padding="8dp"
+                        android:src="@drawable/ic_search"
+                        app:tint="@color/icon_tint" />
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewAllCategories"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:layout_height="100dp" />
 
                 <TextView
-                    android:id="@+id/text_categories_main"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:layout_weight="1"
-                    android:ellipsize="end"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="4dp"
                     android:fontFamily="@font/big_font"
-                    android:gravity="center"
-                    android:maxLines="1"
-                    android:text="@string/my_categories"
+                    android:text="@string/my_notes"
                     android:textColor="@color/main_text_color"
                     android:textSize="22sp" />
-
-                <ImageView
-                    android:id="@+id/search"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:layout_marginEnd="16dp"
-                    android:background="?android:attr/selectableItemBackgroundBorderless"
-                    android:clickable="true"
-                    android:contentDescription="@string/image"
-                    android:focusable="true"
-                    android:padding="8dp"
-                    android:src="@drawable/ic_search"
-                    app:tint="@color/icon_tint" />
             </LinearLayout>
+        </com.google.android.material.appbar.AppBarLayout>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerViewAllCategories"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                tools:layout_height="100dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_margin="4dp"
-                android:fontFamily="@font/big_font"
-                android:text="@string/my_notes"
-                android:textColor="@color/main_text_color"
-                android:textSize="22sp" />
-        </LinearLayout>
-    </com.google.android.material.appbar.AppBarLayout>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewAllNotes"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_anchor="@id/main_top_layout"
-        app:layout_anchorGravity="bottom"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
-
-    <TextView
-        android:id="@+id/text_empty_note_main"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:alpha="0.5"
-        android:fontFamily="@font/normal_font"
-        android:text="@string/no_notes_yet_n_tap_to_button_to_add_note"
-        android:textColor="@color/light_text_color"
-        android:textSize="25sp"
-        android:visibility="gone" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:orientation="vertical"
-        app:layout_behavior="@string/hide_bottom_view_on_scroll_behavior">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewAllNotes"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context=".MainActivity">
+            app:layout_anchor="@id/main_top_layout"
+            app:layout_anchorGravity="bottom"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
-            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-                android:id="@+id/add_fab"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="16dp"
-                android:backgroundTint="@color/colorAccent"
-                android:contentDescription="@string/add"
-                android:fontFamily="@font/big_font"
-                android:text="@string/add"
-                android:textColor="@color/colorPrimary"
-                app:icon="@drawable/ic_add"
-                app:iconTint="@color/colorPrimary"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:rippleColor="@color/colorPrimaryDark" />
+        <TextView
+            android:id="@+id/text_empty_note_main"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:alpha="0.5"
+            android:fontFamily="@font/normal_font"
+            android:text="@string/no_notes_yet_n_tap_to_button_to_add_note"
+            android:textColor="@color/light_text_color"
+            android:textSize="25sp"
+            android:visibility="gone" />
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/button_add_new_category"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
-                android:backgroundTint="@color/colorAccent"
-                android:contentDescription="@string/add"
-                app:fabSize="normal"
-                app:layout_constraintBottom_toTopOf="@+id/add_fab"
-                app:layout_constraintEnd_toEndOf="@+id/add_fab"
-                app:rippleColor="@color/colorPrimaryDark"
-                app:srcCompat="@drawable/ic_category"
-                app:tint="@color/colorPrimary" />
-
-            <TextView
-                android:id="@+id/add_category_text"
-                style="@style/MediumTextStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:background="@drawable/background_text"
-                android:padding="8dp"
-                android:text="@string/add_a_new_category"
-                app:layout_constraintBottom_toBottomOf="@+id/button_add_new_category"
-                app:layout_constraintEnd_toStartOf="@+id/button_add_new_category"
-                app:layout_constraintTop_toTopOf="@+id/button_add_new_category" />
-
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/button_add_new_note"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
-                android:backgroundTint="@color/colorAccent"
-                android:contentDescription="@string/add"
-                app:fabSize="normal"
-                app:layout_constraintBottom_toTopOf="@+id/button_add_new_category"
-                app:layout_constraintEnd_toEndOf="@+id/button_add_new_category"
-                app:layout_constraintStart_toStartOf="@+id/button_add_new_category"
-                app:rippleColor="@color/colorPrimaryDark"
-                app:srcCompat="@drawable/ic_note"
-                app:tint="@color/colorPrimary" />
-
-            <TextView
-                android:id="@+id/add_new_note_text"
-                style="@style/MediumTextStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:background="@drawable/background_text"
-                android:padding="8dp"
-                android:text="@string/add_a_new_note"
-                app:layout_constraintBottom_toBottomOf="@+id/button_add_new_note"
-                app:layout_constraintEnd_toStartOf="@+id/button_add_new_note"
-                app:layout_constraintTop_toTopOf="@+id/button_add_new_note" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <include
-            android:id="@+id/note_native_ad_main"
-            layout="@layout/layout_note_native_ad"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom"/>
-    </LinearLayout>
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+            android:layout_gravity="bottom"
+            android:orientation="vertical"
+            app:layout_behavior="@string/hide_bottom_view_on_scroll_behavior">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context=".MainActivity">
+
+                <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                    android:id="@+id/add_fab"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:backgroundTint="@color/colorAccent"
+                    android:contentDescription="@string/add"
+                    android:fontFamily="@font/big_font"
+                    android:text="@string/add"
+                    android:textColor="@color/colorPrimary"
+                    app:icon="@drawable/ic_add"
+                    app:iconTint="@color/colorPrimary"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:rippleColor="@color/colorPrimaryDark" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/button_add_new_category"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp"
+                    android:backgroundTint="@color/colorAccent"
+                    android:contentDescription="@string/add"
+                    app:fabSize="normal"
+                    app:layout_constraintBottom_toTopOf="@+id/add_fab"
+                    app:layout_constraintEnd_toEndOf="@+id/add_fab"
+                    app:rippleColor="@color/colorPrimaryDark"
+                    app:srcCompat="@drawable/ic_category"
+                    app:tint="@color/colorPrimary" />
+
+                <TextView
+                    android:id="@+id/add_category_text"
+                    style="@style/MediumTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/background_text"
+                    android:padding="8dp"
+                    android:text="@string/add_a_new_category"
+                    app:layout_constraintBottom_toBottomOf="@+id/button_add_new_category"
+                    app:layout_constraintEnd_toStartOf="@+id/button_add_new_category"
+                    app:layout_constraintTop_toTopOf="@+id/button_add_new_category" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/button_add_new_note"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp"
+                    android:backgroundTint="@color/colorAccent"
+                    android:contentDescription="@string/add"
+                    app:fabSize="normal"
+                    app:layout_constraintBottom_toTopOf="@+id/button_add_new_category"
+                    app:layout_constraintEnd_toEndOf="@+id/button_add_new_category"
+                    app:layout_constraintStart_toStartOf="@+id/button_add_new_category"
+                    app:rippleColor="@color/colorPrimaryDark"
+                    app:srcCompat="@drawable/ic_note"
+                    app:tint="@color/colorPrimary" />
+
+                <TextView
+                    android:id="@+id/add_new_note_text"
+                    style="@style/MediumTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/background_text"
+                    android:padding="8dp"
+                    android:text="@string/add_a_new_note"
+                    app:layout_constraintBottom_toBottomOf="@+id/button_add_new_note"
+                    app:layout_constraintEnd_toStartOf="@+id/button_add_new_note"
+                    app:layout_constraintTop_toTopOf="@+id/button_add_new_note" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <include
+        android:id="@+id/note_native_ad_main"
+        layout="@layout/layout_note_native_ad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp" />
+</LinearLayout>

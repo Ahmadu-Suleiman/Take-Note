@@ -4,5 +4,4 @@
 
     <solid android:color="@color/layout_note_color_default" />
     <corners android:radius="20dp" />
-
 </shape>

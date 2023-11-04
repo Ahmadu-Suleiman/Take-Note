@@ -1,93 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".fragments.NoteTrashFragment">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/trash_top_layout"
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        android:elevation="0dp"
-        android:orientation="vertical"
-        app:elevation="0dp">
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
-        <LinearLayout
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/trash_top_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            app:layout_scrollFlags="scroll|enterAlways">
+            android:background="@android:color/transparent"
+            android:elevation="0dp"
+            android:orientation="vertical"
+            app:elevation="0dp">
 
-            <ImageView
-                android:id="@+id/hamburger"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_marginStart="16dp"
-                android:background="?android:attr/selectableItemBackgroundBorderless"
-                android:clickable="true"
-                android:contentDescription="@string/open_drawer"
-                android:focusable="true"
-                android:padding="8dp"
-                android:src="@drawable/ic_hamburger"
-                app:tint="@color/icon_tint" />
-
-            <TextView
-                android:layout_width="0dp"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:layout_weight="1"
-                android:ellipsize="end"
-                android:fontFamily="@font/big_font"
-                android:gravity="center"
-                android:maxLines="1"
-                android:text="@string/notes_in_trash"
-                android:textColor="@color/main_text_color"
-                android:textSize="22sp" />
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                app:layout_scrollFlags="scroll|enterAlways">
 
-            <ImageView
-                android:id="@+id/imageView_trash_delete_all"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_marginEnd="16dp"
-                android:background="?android:attr/selectableItemBackgroundBorderless"
-                android:clickable="true"
-                android:contentDescription="@string/image"
-                android:focusable="true"
-                android:padding="8dp"
-                android:src="@drawable/ic_delete"
-                app:tint="@color/icon_tint" />
-        </LinearLayout>
-    </com.google.android.material.appbar.AppBarLayout>
+                <ImageView
+                    android:id="@+id/hamburger"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="16dp"
+                    android:background="?android:attr/selectableItemBackgroundBorderless"
+                    android:clickable="true"
+                    android:contentDescription="@string/open_drawer"
+                    android:focusable="true"
+                    android:padding="8dp"
+                    android:src="@drawable/ic_hamburger"
+                    app:tint="@color/icon_tint" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewTrashNotes"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_anchor="@id/trash_top_layout"
-        app:layout_anchorGravity="bottom"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/big_font"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:padding="8dp"
+                    android:text="@string/notes_in_trash"
+                    android:textColor="@color/main_text_color"
+                    android:textSize="22sp" />
 
-    <TextView
-        android:id="@+id/text_empty_note_main_trash"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:alpha="0.5"
-        android:fontFamily="@font/normal_font"
-        android:gravity="center"
-        android:text="@string/no_notes_in_trash"
-        android:textColor="@color/light_text_color"
-        android:textSize="25sp" />
+                <ImageView
+                    android:id="@+id/imageView_trash_delete_all"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="?android:attr/selectableItemBackgroundBorderless"
+                    android:clickable="true"
+                    android:contentDescription="@string/image"
+                    android:focusable="true"
+                    android:padding="8dp"
+                    android:src="@drawable/ic_delete"
+                    app:tint="@color/icon_tint" />
+            </LinearLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewTrashNotes"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_anchor="@id/trash_top_layout"
+            app:layout_anchorGravity="bottom"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+        <TextView
+            android:id="@+id/text_empty_note_main_trash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:alpha="0.5"
+            android:fontFamily="@font/normal_font"
+            android:gravity="center"
+            android:text="@string/no_notes_in_trash"
+            android:textColor="@color/light_text_color"
+            android:textSize="25sp" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     <include
         android:id="@+id/note_native_ad_trash"
         layout="@layout/layout_note_native_ad"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        app:layout_behavior="@string/hide_bottom_view_on_scroll_behavior" />
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+        android:layout_margin="4dp" />
+</LinearLayout>

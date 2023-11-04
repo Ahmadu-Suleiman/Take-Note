@@ -6,7 +6,6 @@ color gnt_blue
 color gnt_colorAccent
 color gnt_gray
 color gnt_outline
-color gnt_test_background_color
 color gnt_white
 dimen gnt_ad_indicator_height
 dimen gnt_ad_indicator_text_size
@@ -18,6 +17,7 @@ dimen gnt_no_size
 dimen gnt_text_row_weight
 dimen gnt_text_size_large
 dimen gnt_text_size_small
+drawable gnt_curved_solid
 drawable gnt_outline_shape
 drawable gnt_rounded_corners_shape
 id ad_notification_view
@@ -37,4 +37,5 @@ id secondary
 layout gnt_medium_template_view
 layout gnt_small_template_view
 string gnt_ad
+string gnt_ad_image
 styleable TemplateView gnt_template_type

@@ -677,7 +677,6 @@ color gnt_blue
 color gnt_colorAccent
 color gnt_gray
 color gnt_outline
-color gnt_test_background_color
 color gnt_white
 color highlighted_text_material_dark
 color highlighted_text_material_light
@@ -969,6 +968,7 @@ drawable common_google_signin_btn_text_light
 drawable common_google_signin_btn_text_light_focused
 drawable common_google_signin_btn_text_light_normal
 drawable common_google_signin_btn_text_light_normal_background
+drawable gnt_curved_solid
 drawable gnt_outline_shape
 drawable gnt_rounded_corners_shape
 drawable googleg_disabled_color_18
@@ -1385,6 +1385,7 @@ string fallback_menu_item_copy_link
 string fallback_menu_item_open_in_browser
 string fallback_menu_item_share_link
 string gnt_ad
+string gnt_ad_image
 string native_body
 string native_headline
 string native_media_view

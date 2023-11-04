@@ -1,166 +1,175 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
+    android:orientation="vertical"
     tools:context=".activities.CategoryActivity">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/category_main_top_layout"
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        android:elevation="0dp"
-        android:orientation="vertical"
-        app:elevation="0dp">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fitsSystemWindows="true">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/category_main_top_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:elevation="0dp"
+            android:orientation="vertical"
+            app:elevation="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                app:layout_scrollFlags="scroll|enterAlways">
+
+                <TextView
+                    android:id="@+id/textView_categoryName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/big_font"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:textColor="@color/main_text_color"
+                    android:textSize="25sp"
+                    tools:text="Category Name" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/layoutChangeCategoryName"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_weight="1"
+                        android:background="?android:attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <ImageView
+                            android:id="@+id/imageViewRenameCategory"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginStart="4dp"
+                            android:layout_marginTop="2dp"
+                            android:layout_marginBottom="2dp"
+                            android:contentDescription="@string/image"
+                            android:src="@drawable/ic_rename"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:tint="@color/icon_tint" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:fontFamily="@font/normal_font"
+                            android:text="@string/rename_category"
+                            android:textColor="@color/light_text_color"
+                            app:layout_constraintBottom_toBottomOf="@+id/imageViewRenameCategory"
+                            app:layout_constraintStart_toEndOf="@+id/imageViewRenameCategory"
+                            app:layout_constraintTop_toTopOf="@+id/imageViewRenameCategory" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/layoutDeleteCategory"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_weight="1"
+                        android:background="?android:attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <ImageView
+                            android:id="@+id/imageViewDeleteCategory"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginStart="4dp"
+                            android:layout_marginTop="2dp"
+                            android:layout_marginBottom="2dp"
+                            android:contentDescription="@string/image"
+                            android:src="@drawable/ic_delete"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:tint="@color/icon_tint" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:fontFamily="@font/normal_font"
+                            android:text="@string/delete_category"
+                            android:textColor="@color/light_text_color"
+                            app:layout_constraintBottom_toBottomOf="@+id/imageViewDeleteCategory"
+                            app:layout_constraintStart_toEndOf="@+id/imageViewDeleteCategory"
+                            app:layout_constraintTop_toTopOf="@+id/imageViewDeleteCategory" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewCategoryNotes"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_anchor="@id/category_main_top_layout"
+            app:layout_anchorGravity="bottom"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+        <TextView
+            android:id="@+id/text_empty_note_in_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:alpha="0.5"
+            android:fontFamily="@font/normal_font"
+            android:gravity="center"
+            android:text="@string/no_notes_yet_n_tap_to_button_to_add_note"
+            android:textColor="@color/light_text_color"
+            android:textSize="30sp"
+            android:visibility="gone" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
+            android:layout_gravity="bottom"
             android:orientation="vertical"
-            app:layout_scrollFlags="scroll|enterAlways">
+            app:layout_behavior="@string/hide_bottom_view_on_scroll_behavior">
 
-            <TextView
-                android:id="@+id/textView_categoryName"
-                android:layout_width="match_parent"
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/imageView_add_category_note"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:fontFamily="@font/big_font"
-                android:gravity="center"
-                android:maxLines="1"
-                android:textColor="@color/main_text_color"
-                android:textSize="25sp"
-                tools:text="Category Name" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:baselineAligned="false"
-                android:orientation="horizontal">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/layoutChangeCategoryName"
-                    android:layout_width="0dp"
-                    android:layout_height="48dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_weight="1"
-                    android:background="?android:attr/selectableItemBackground"
-                    android:clickable="true"
-                    android:focusable="true">
-
-                    <ImageView
-                        android:id="@+id/imageViewRenameCategory"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_marginStart="4dp"
-                        android:layout_marginTop="2dp"
-                        android:layout_marginBottom="2dp"
-                        android:contentDescription="@string/image"
-                        android:src="@drawable/ic_rename"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:tint="@color/icon_tint" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:fontFamily="@font/normal_font"
-                        android:text="@string/rename_category"
-                        android:textColor="@color/light_text_color"
-                        app:layout_constraintBottom_toBottomOf="@+id/imageViewRenameCategory"
-                        app:layout_constraintStart_toEndOf="@+id/imageViewRenameCategory"
-                        app:layout_constraintTop_toTopOf="@+id/imageViewRenameCategory" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/layoutDeleteCategory"
-                    android:layout_width="0dp"
-                    android:layout_height="48dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_weight="1"
-                    android:background="?android:attr/selectableItemBackground"
-                    android:clickable="true"
-                    android:focusable="true">
-
-                    <ImageView
-                        android:id="@+id/imageViewDeleteCategory"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_marginStart="4dp"
-                        android:layout_marginTop="2dp"
-                        android:layout_marginBottom="2dp"
-                        android:contentDescription="@string/image"
-                        android:src="@drawable/ic_delete"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:tint="@color/icon_tint" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:fontFamily="@font/normal_font"
-                        android:text="@string/delete_category"
-                        android:textColor="@color/light_text_color"
-                        app:layout_constraintBottom_toBottomOf="@+id/imageViewDeleteCategory"
-                        app:layout_constraintStart_toEndOf="@+id/imageViewDeleteCategory"
-                        app:layout_constraintTop_toTopOf="@+id/imageViewDeleteCategory" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </LinearLayout>
+                android:layout_gravity="end"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="30dp"
+                android:backgroundTint="@color/colorAccent"
+                android:contentDescription="@string/add"
+                app:rippleColor="@color/colorPrimaryDark"
+                app:srcCompat="@drawable/ic_note"
+                app:tint="@color/colorPrimary" />
         </LinearLayout>
-    </com.google.android.material.appbar.AppBarLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewCategoryNotes"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_anchor="@id/category_main_top_layout"
-        app:layout_anchorGravity="bottom"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
-
-    <TextView
-        android:id="@+id/text_empty_note_in_category"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:alpha="0.5"
-        android:fontFamily="@font/normal_font"
-        android:gravity="center"
-        android:text="@string/no_notes_yet_n_tap_to_button_to_add_note"
-        android:textColor="@color/light_text_color"
-        android:textSize="30sp"
-        android:visibility="gone" />
-
-    <LinearLayout
+    <include
+        android:id="@+id/note_native_ad_category"
+        layout="@layout/layout_note_native_ad"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:orientation="vertical"
-        app:layout_behavior="@string/hide_bottom_view_on_scroll_behavior">
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/imageView_add_category_note"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="30dp"
-            android:backgroundTint="@color/colorAccent"
-            android:contentDescription="@string/add"
-            app:rippleColor="@color/colorPrimaryDark"
-            app:srcCompat="@drawable/ic_note"
-            app:tint="@color/colorPrimary" />
-
-        <include
-            android:id="@+id/note_native_ad_category"
-            layout="@layout/layout_note_native_ad"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+        android:layout_margin="4dp" />
+</LinearLayout>

@@ -3,9 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
     android:layout_margin="4dp"
-    android:padding="4dp"
-    app:cardCornerRadius="2dp">
+    android:padding="8dp"
+    app:cardBackgroundColor="@color/layout_note_color_default"
+    app:cardCornerRadius="8dp">
 
     <com.google.android.ads.nativetemplates.TemplateView
         android:id="@+id/native_ad"
